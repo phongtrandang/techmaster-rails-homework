@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Created at</th>
+          <th>Balance</th>
+          <th>Option</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user|%>
+        <tr>
+          <td><%= user.first %></td>
+          <td><%= user.last %></td>
+          <td><%= user.email %></td>
+          <td><%= user.address %></td>
+          <td><%= user.created_at %></td>
+          <td><%= user.balance %></td>
+          <td>
+            <%= link_to 'Edit', edit_user_path(user) %>
+          </td>
+          <td><%= link_to 'Destroy', user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
